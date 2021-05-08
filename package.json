@@ -1,0 +1,10 @@
+{
+    "name": "frontend-challenge-1",
+    "version": "1.0.0",
+    "private": true,
+    "author": "Sergio Varejao <varejaosergio@gmail.com>",         
+    "dependencies": {
+        "axios": "^0.21.1",
+        "node-sass": "^5.0.0"
+    }
+}
