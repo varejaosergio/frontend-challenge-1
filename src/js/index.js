@@ -23,30 +23,3 @@ botaoEntrar.addEventListener("click", function login (event) {
   }
   
 });
-  
-
-
-/*function postAPI() {
-  var results = submitForm();
-  fetch("", { method: 'POST'})
-    .then(results => results.json() )
-    .then(console.log); 
-};*/
-
-
-
- 
-
-
-
-
-
-
-/*axios({
-  method: 'post',
-  url: 'https://reqres.in/api/login',
-  data: {
-    email: '',
-    senha: ''
-  }
-});*/
