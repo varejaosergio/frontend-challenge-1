@@ -12,7 +12,16 @@ botaoEntrar.addEventListener("click", function login (event) {
   var password = form.senha.value;
 
   console.log(email);
-  console.log(password);    
+  console.log(password); 
+
+  var loginObj = {"email" : [email], "password" : [password] };
+  var loginJSON = JSON.stringify (loginObj);
+  //localStorage.setItem("apiJSON", loginJSON);
+  console.log(loginJSON);
+  return{
+    loginJSON
+  }
+  
 });
   
 
