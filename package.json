@@ -5,8 +5,8 @@
     "main": "./src/js/index.js",
     "private": true,
     "scripts": {
-        "sass": "node-sass -w src/scss/ -o src/css/ --recursive",
-        "start": "npm start",
+        "server": "node ./server.js",        
+        "start": "npm run server",
         "build": "node build/build.js"
     },
     "author": "Sergio Varejao <varejaosergio@gmail.com>",
