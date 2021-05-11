@@ -2,7 +2,7 @@
 
 var botaoEntrar = document.querySelector("#entrar");
 
-botaoEntrar.addEventListener("click", function login (event) {
+botaoEntrar.addEventListener("click", async function login (event) {
 
   event.preventDefault();
 
@@ -11,15 +11,18 @@ botaoEntrar.addEventListener("click", function login (event) {
   var email = form.email.value;
   var password = form.senha.value;
 
-  console.log(email);
-  console.log(password); 
-
-  var loginObj = {"email" : [email], "password" : [password] };
+  var loginObj = {"email" : email, "password" : password };
+  console.log(loginObj);
   var loginJSON = JSON.stringify (loginObj);
-  //localStorage.setItem("apiJSON", loginJSON);
-  console.log(loginJSON);
-  return{
-    loginJSON
-  }
   
+  let response = await fetch('https://reqres.in/api/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8'
+    },
+    body: [loginJSON]
+  });
+  var a = await response.json();
+      
+      alert(a.token);
 });
