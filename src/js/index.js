@@ -1,5 +1,3 @@
-const listaUsuarios = "../../lista-usuarios.html";
-
 var botaoEntrar = document.querySelector("#entrar");
 
 botaoEntrar.addEventListener("click", async function login (event) {
@@ -14,7 +12,7 @@ botaoEntrar.addEventListener("click", async function login (event) {
   var loginObj = {"email" : email, "password" : password };  
   var loginJSON = JSON.stringify (loginObj);
   
-  let response = await fetch('https://reqres.in/api/login', {
+  await fetch('https://reqres.in/api/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json;charset=utf-8'
@@ -25,15 +23,28 @@ botaoEntrar.addEventListener("click", async function login (event) {
     .then((data) => {
       let token = data.token;
       if (token !== undefined && token !== null) {
-        sessionStorage.setItem('token', token);
-        window.location.href = listaUsuarios;
+        sessionStorage.setItem('token', token)
+        userList();
       } else {
         removeSpinner();
         setErrorMessage('Usuário ou senha incorretos');
       }    
     })
-  var a = await response.json();
-  alert(a.token);   
-  
+    //var a = response.json();
 });
 
+async function userList(token) {
+
+  await fetch('https://reqres.in/api/users?page=1', {
+      method: 'GET',
+      headers : {
+          'content-type': 'aplication/json;charset=utf-8'
+      }
+  })
+  .then((response) => response.json())  
+  .then((data) => {
+    let page = data.page;
+    console.log(page)    
+  });
+  
+};
