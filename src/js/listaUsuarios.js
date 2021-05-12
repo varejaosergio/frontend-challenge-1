@@ -1,4 +1,4 @@
-//sessionStorage.getItem('token', token) ? '' : (window.location.href = '/');
+sessionStorage.getItem('token', token) ? '' : (window.location.href = '/');
 
 async function userList() {
 
